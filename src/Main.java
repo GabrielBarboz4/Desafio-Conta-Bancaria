@@ -6,15 +6,14 @@ public class Main {
         String name = "Gabriel Garcia Barboza";
         String typeAc = "Corrente";
         double balance = 2000;
-        double valorRecebido = 0;
-        double valorTransferido = 0;
-
+        double valorRecebido;
+        double valorTransferido;
 
         System.out.println("******************************** \n");
         System.out.println("Dados iniciais do Cliente: \n");
-        System.out.println("Nome:             " + name);
-        System.out.println("Tipo de conta:    " + typeAc);
-        System.out.println("Saldo:            " + balance);
+        System.out.println("Nome:            " + name);
+        System.out.println("Tipo de conta:   " + typeAc);
+        System.out.println("Saldo:           " + balance);
         System.out.println("\n******************************** \n");
 
         System.out.println("Operações \n");
@@ -27,18 +26,21 @@ public class Main {
         System.out.println("Digite qual a opção desejada");
         int valorDigitado = input.nextInt();
 
-        while (valorDigitado < 4) {
+        while (valorDigitado != 4) {
 
             switch (valorDigitado) {
+
                 case 1:
                     System.out.println("O saldo atual é de: R$ " + balance);
                     break;
+
                 case 2:
                     System.out.println("Digite o valor do depósito");
                     valorRecebido = input.nextDouble();
                     balance = valorRecebido + balance;
                     System.out.println("Saldo atualizado: R$ " + balance);
                     break;
+
                 case 3:
                     System.out.println("Digite o valor da transferência");
                     valorTransferido = input.nextDouble();
@@ -49,11 +51,9 @@ public class Main {
                         System.out.println("Saldo atualizado: R$ " + balance);
                     }
                     break;
-                case 4:
-                    if (valorDigitado > 4 || valorDigitado < 0) {
-                        System.out.println("Valor inválido");
-                    }
-                    break;
+
+                default:
+                    System.out.println("DIGITE UM VALOR VÁLIDO: valor digitado - " + valorDigitado);
             }
 
             System.out.println("\n1 - Consultar valores");
@@ -62,8 +62,8 @@ public class Main {
             System.out.println("4 - Sair \n");
 
             System.out.println("Digite qual a opção desejada");
-            valorDigitado = input.nextInt();
 
+            valorDigitado = input.nextInt();
         }
         }
 }
